@@ -5,7 +5,7 @@ warp <- function(x) {
 
 #' Pipe/warp an object downwards into a function call/expression/dungeon level.
 #'
-#' The \code{\%W>\%} operator does exactly the same thing as \code{\link{\%>\%}}:
+#' Also known as the "warp" operator, \code{\%W>\%} does exactly the same thing as \code{\link{\%>\%}}:
 #' it pipes the left-hand side into an expression on the right-hand side. But with
 #' a bonus: when you use \code{\%W>\%} you hear the sound that --- if you are anything
 #' like me --- goes through your head every time you use a pipe, only for real! 
