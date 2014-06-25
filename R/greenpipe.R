@@ -1,6 +1,6 @@
 
 warp <- function(x) {
-  ping("inst/sound/smb_pipe.wav") 
+  ping(system.file("sound", "smb_pipe.wav", package="greenpipeR")) 
 }
 
 #' Pipe/warp an object downwards into a function call/expression/dungeon level.
