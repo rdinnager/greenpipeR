@@ -16,7 +16,7 @@ devtools::install_github("rdinnager/greenpipeR")
 
 __Warning::__ If you have easily annoyed office mates, then use this package with caution. Also, in case you were wondering, this package is not _Useful_, only fun. Not suitable for those with high maturity level. Personally I now always use `%W>%` in place of `%>%`, but your mileage may vary.
 
-If you haven'y figured out by now what `%W>%` does, make sure the sound on your computer is on (but not too loud!) before you use it. :)
+If you haven't figured out by now what `%W>%` does, make sure the sound on your computer is on (but not too loud!) before you use it. :)
 
 ###Acknowledgements
 
