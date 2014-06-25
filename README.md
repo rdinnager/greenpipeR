@@ -20,4 +20,4 @@ If you haven't figured out by now what `%W>%` does, make sure the sound on your 
 
 ###Acknowledgements
 
-This package brings me delight and was created with only two lines of code, thanks entirely to the awesome work of the developers of [`magrittr`](https://github.com/smbache/magrittr) and [`pingr`](https://github.com/rasmusab/pingr). Thanks very much to them!
+This package brings me delight and was created with only two lines of code, thanks entirely to the awesome work of the developers of [`magrittr`](https://github.com/smbache/magrittr): [Stefan Milton Bache](https://github.com/smbache) and [Hadley Wickham](https://github.com/hadley), and [`pingr`](https://github.com/rasmusab/pingr): [Rasmus Bååth](https://github.com/rasmusab). Thanks very much to them!
