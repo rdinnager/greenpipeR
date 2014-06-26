@@ -24,6 +24,8 @@ __Note:__ This package works with the current `master` branch of `magrittr` but 
 Here's a few example to get you started:
 
 ```
+library(greenpipeR)
+
 seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>%
 sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>% 
 sin %T>% print %T>% plot(type = 'l')
