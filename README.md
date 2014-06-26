@@ -19,6 +19,26 @@ If you haven't figured out by now what `%W>%` does, make sure the sound on your 
 
 __Note:__ This package works with the current `master` branch of `magrittr` but is incompatible with the `dev` branch. I am working on a fix which will allow `greenpipeR` to keep working once the `dev` changes are incorporated into the `master` branch.
 
+###Examples
+
+Here's a few example to get you started:
+
+```
+seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>%
+sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>% 
+sin %T>% print %T>% plot(type = 'l')
+```
+
+```
+library(dplyr)
+library(Lahman)
+
+Batting %W>%
+group_by(playerID) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+summarise(total = sum(G)) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+arrange(desc(total)) 
+```
+
 ###Acknowledgements
 
 This package brings me delight and was created with only two lines of code, thanks entirely to the awesome work of the developers of [`magrittr`](https://github.com/smbache/magrittr): [Stefan Milton Bache](https://github.com/smbache) and [Hadley Wickham](https://github.com/hadley), and [`pingr`](https://github.com/rasmusab/pingr): [Rasmus Bååth](https://github.com/rasmusab). Thanks very much to them!
