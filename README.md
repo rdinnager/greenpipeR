@@ -18,6 +18,8 @@ __Warning::__ If you have easily annoyed office mates, then use this package wit
 
 If you haven't figured out by now what `%W>%` does, make sure the sound on your computer is on (but not too loud!) before you use it. :)
 
+__Note:__ This package works with the current `master` branch of `magrittr` but is incompatible with the `dev` branch. I am working on a fix which will allow `greenpipeR` to keep working once the `dev` changes are incorporated into the `master` branch.
+
 ###Acknowledgements
 
 This package brings me delight and was created with only two lines of code, thanks entirely to the awesome work of the developers of [`magrittr`](https://github.com/smbache/magrittr): [Stefan Milton Bache](https://github.com/smbache) and [Hadley Wickham](https://github.com/hadley), and [`pingr`](https://github.com/rasmusab/pingr): [Rasmus Bååth](https://github.com/rasmusab). Thanks very much to them!
