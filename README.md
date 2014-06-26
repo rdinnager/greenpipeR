@@ -21,7 +21,7 @@ __Note:__ This package works with the current `master` branch of `magrittr` but 
 
 ###Examples
 
-Here's a few example to get you started:
+Here's a few examples to get you started:
 
 ```
 library(greenpipeR)
