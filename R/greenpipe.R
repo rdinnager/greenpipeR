@@ -1,4 +1,3 @@
-
 warp <- function(x) {
   ping(system.file("sound", "smb_pipe.wav", package="greenpipeR")) 
 }
