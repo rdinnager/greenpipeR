@@ -5,7 +5,7 @@ Author: Russell Dinnage <r.dinnage@gmail.com>
 Maintainer: Russell Dinnage <r.dinnage@gmail.com>
 Depends:
     R (>= 3.0.0),magrittr,pingr
-Description: This package creates a new pipe: %M>% which is exactly the same as
+Description: This package creates a new pipe: %W>% which is exactly the same as
     %>% only with a fun surprise. It basically recreates what goes through my
     head, unbidden, every time I use a pipe.
 License: GPL (>= 3)
