@@ -9,7 +9,7 @@ It requires [`magrittr`](https://github.com/smbache/magrittr) (the latest versio
 devtools::install_github("rasmusab/pingr")
 ## install magrittr dependency
 devtools::install_github("smbache/magrittr")
-## install greenpipeR development version
+## install greenpipeR
 devtools::install_github("rdinnager/greenpipeR")
 ```
 
