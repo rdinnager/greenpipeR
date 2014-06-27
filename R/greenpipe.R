@@ -1,7 +1,16 @@
-
-warp <- function(x) {
-  ping(system.file("sound", "smb_pipe.wav", package="greenpipeR")) 
-}
+warp <- local({
+  timing <- proc.time()[3]
+  function(x) {
+    soundtime <- proc.time()[3] - timing
+    cl <- match.call()
+    counter <- gregexpr("%W>%", cl[[2]], fixed = TRUE)[[1]]
+    if (counter[1] == -1) count <- 1 else count <- length(counter) + 1
+    if (count == 1 || soundtime > 0.6) {
+      ping(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+      timing <<- proc.time()[3]
+    }
+  }
+})
 
 #' Pipe/warp an object downwards into a function call/expression/dungeon level.
 #'
