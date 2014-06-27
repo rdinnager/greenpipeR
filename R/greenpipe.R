@@ -6,7 +6,7 @@ warp <- local({
     counter <- gregexpr("%W>%", cl[[2]], fixed = TRUE)[[1]]
     if (counter[1] == -1) count <- 1 else count <- length(counter) + 1
     if (count == 1 || soundtime > 0.6) {
-      ping(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+      beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
       timing <<- proc.time()[3]
     }
   }
@@ -22,7 +22,7 @@ warp <- local({
 #' @param lhs That which is to be warped
 #' @param rhs the function/dungeon level to be warped into
 #' @rdname warp
-#' @import magrittr pingr
+#' @import magrittr beepr
 #' @export
 #' @examples
 #' 
