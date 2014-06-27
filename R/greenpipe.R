@@ -16,15 +16,19 @@ warp <- function(x) {
 #' @import magrittr pingr
 #' @export
 #' @examples
+#' 
+#' seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>%
+#' sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>% 
+#' sin %T>% print %T>% plot(type = 'l')
+#' 
 #' \dontrun{
+#' 
 #' library(dplyr)
 #' library(Lahman)
-#'
 #' Batting %W>%
-#' group_by(playerID) %W>%
-#' summarise(total = sum(G)) %W>%
-#' arrange(desc(total)) %W>%
-#' head(5)
+#' group_by(playerID) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+#' summarise(total = sum(G)) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+#' arrange(desc(total)) 
 #'
 #' }
 `%W>%` <- pipe_with(warp)
