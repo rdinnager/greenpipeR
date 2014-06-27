@@ -4,7 +4,7 @@ __version 0.2__
 
 This package introduces the new pipe operator `%W>%` &mdash; also known as the "warp" operator &mdash; which is inspired by a certain famous _plumber_. It does exactly the same thing as the `%>%` operator from [`magrittr`](https://github.com/smbache/magrittr): it pipes the left-hand side into an expression on the right-hand side, with one very small addition. When you use `%W>%` it recreates what goes through my head (and probably yours if you are from a certain generation) everytime I use a pipe in R. So if you are a `magrittr` _plumber_, and you can't get enough of piping/warping objects into functions/dungeon levels, then you may enjoy this package.
 
-It requires [`magrittr`](https://github.com/smbache/magrittr) (the latest version from github) and [`beepr`](https://github.com/rasmusab/beepr) (now on CRAN!). You can install `greenpipeR` by running the following in R:
+It requires [`magrittr`](https://github.com/smbache/magrittr) (the latest version from github) and [`beepr`](https://github.com/rasmusab/beepr) (now on [CRAN!](http://cran.r-project.org/web/packages/beepr/index.html)). You can install `greenpipeR` by running the following in R:
 
 ```
 ## install magrittr dependency
