@@ -1,6 +1,6 @@
 ![a green pipe](A_green_pipe.gif)
 
-__version 0.2__ (currently broken with new version of `magrittr`. Should be fixed soon.)
+__version 0.2__
 
 This package introduces the new pipe operator `%W>%` &mdash; also known as the "warp" operator &mdash; which is inspired by a certain famous _plumber_. It does exactly the same thing as the `%>%` operator from [`magrittr`](https://github.com/smbache/magrittr): it pipes the left-hand side into an expression on the right-hand side, with one very small addition. When you use `%W>%` it recreates what goes through my head (and probably yours if you are from a certain generation) everytime I use a pipe in R. So if you are a `magrittr` _plumber_, and you can't get enough of piping/warping objects into functions/dungeon levels, then you may enjoy this package.
 
@@ -17,11 +17,7 @@ __Warning::__ If you have easily annoyed office mates, then use this package wit
 
 If you haven't figured out by now what `%W>%` does, make sure the sound on your computer is on (but not too loud!) before you use it. :)
 
-<<<<<<< HEAD
-__Note:__ This package is currently _broken_ in you install the latest version of `magritte` from github. I will provide a fix soon! Sorry for any inconvenience.
-=======
 __Note:__ `greenpipeR` now works with the newest version of magrittr that is on github, but sounds will overlap if `%W>%` operators are executed in quick succession. Thanks very much to Stefan Milton Bache, ([\@smbache](https://github.com/smbache)) who provided the key code to get it working again.
->>>>>>> magrittr-dev
 
 ###Examples
 
