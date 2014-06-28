@@ -1,16 +1,36 @@
-warp <- local({
-  timing <- proc.time()[3]
-  function(x) {
-    soundtime <- proc.time()[3] - timing
-    cl <- match.call()
-    counter <- gregexpr("%W>%", cl[[2]], fixed = TRUE)[[1]]
-    if (counter[1] == -1) count <- 1 else count <- length(counter) + 1
-    if (count == 1 || soundtime > 0.6) {
-      beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
-      timing <<- proc.time()[3]
-    }
-  }
-})
+#' Arm a value with a function which fires when evaluated.
+#'
+#' @param expr an expression
+#' @param fun a function of one argument.
+#'
+#' @return an expression which when evaluated returns the result of expr,
+#' after evaluating fun(expr).
+#' @export
+#' @details Thanks very much to Stefan Milton Bache for providing the code to replace the 
+#' now defunct \code{pipe_with} function which uses \code{arm}, which is necessary for \code{\%W>\%} 
+#' to function. Retrieved from this gist: \url{https://gist.github.com/smbache/86fe703fa46e39df33ea}
+arm <- function(expr, fun)
+{
+  substitute({
+    expr %T>% fun
+  },
+  list(
+    fun = substitute(fun),
+    expr = substitute(expr)
+  )
+  )
+}
+
+pipe_with <- function(expr) function(lhs, rhs)
+{
+  parent <- parent.frame()
+  lhs <- eval(call("arm", substitute(lhs), expr), parent, parent)
+  eval(call("%>%", lhs, rhs), parent, parent)
+}
+
+warp <- function(x) {
+  beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+}
 
 #' Pipe/warp an object downwards into a function call/expression/dungeon level.
 #'
