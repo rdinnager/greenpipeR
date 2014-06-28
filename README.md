@@ -17,7 +17,7 @@ __Warning::__ If you have easily annoyed office mates, then use this package wit
 
 If you haven't figured out by now what `%W>%` does, make sure the sound on your computer is on (but not too loud!) before you use it. :)
 
-__Note:__ `greenpipeR` now works with the newest version of magrittr that is on github, but sounds will overlap if `%W>%` operators are executed in quick succession. Thanks very much to Stefan Milton Bache, ([\@smbache](https://github.com/smbache)) who provided the key code to get it working again.
+__Note:__ `greenpipeR` now works with the newest version of magrittr that is on github, but sounds will overlap if `%W>%` operators are executed in quick succession. Thanks very much to Stefan Milton Bache, ([@smbache](https://github.com/smbache)) who provided the key code to get it working again.
 
 ###Examples
 
