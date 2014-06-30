@@ -25,7 +25,7 @@ pipe_with <- function(expr) function(lhs, rhs)
 {
   parent <- parent.frame()
   lhs <- eval(call("arm", substitute(lhs), expr), parent, parent)
-  eval(call("%>%", lhs, rhs), parent, parent)
+  eval(call("%>%", lhs, substitute(rhs)), parent, parent)
 }
 
 warp <- function(x) {
