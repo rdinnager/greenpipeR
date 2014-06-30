@@ -33,12 +33,16 @@ warp <- function(x) {
 }
 
 warp2 <- local({
-  timing <- proc.time()
+  timing <- proc.time()[3]
   function(x) {
     cl <- match.call()
     counter <- gregexpr("%L>%", cl[[2]], fixed = TRUE)[[1]]
     if (counter[1] == -1) count <- 1 else count <- length(counter) + 1
-    beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+    soundtime <- proc.time()[3] - timing
+    if (counter == 1 || soundtime > 0.6){
+      beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+      timing <<- proc.time()[3]
+    }
   }
 })
 
