@@ -28,9 +28,40 @@ pipe_with <- function(expr) function(lhs, rhs)
   eval(call("%>%", lhs, substitute(rhs)), parent, parent)
 }
 
-warp <- function(x) {
-  beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
-}
+warp <- local({
+  timing1 <- proc.time()[3]
+  #timing2 <- proc.time()[3]
+  timing5 <- proc.time()[3]
+  timing10 <- proc.time()[3]
+  function(x) {
+    cl <- match.call()
+    print(cl[[2]])
+    counter <- gregexpr("%W>%", cl[[2]], fixed = TRUE)[[1]]
+    if (counter[1] == -1) count <- 1 else count <- length(counter) + 1
+    soundtime1 <- proc.time()[3] - timing1
+    #soundtime2 <- proc.time()[3] - timing2
+    soundtime5 <- proc.time()[3] - timing5
+    soundtime10 <- proc.time()[3] - timing10
+    print(count)
+    if (count == 1 || soundtime1 > 0.5){
+      beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+      timing1 <<- proc.time()[3]
+    }
+    #if (count == 2 || (count %% 2 == 0 && soundtime2 > 0.6)){
+    #  beep("coin")
+    #  timing2 <<- proc.time()[3]
+    #  print("coin")
+    #}
+    if (count == 5 || (count %% 5 == 0 && soundtime5 > 0.9)){
+      beep(system.file("sound", "smb_powerup.wav", package="greenpipeR"))
+      timing5 <<- proc.time()[3]
+    }
+    if (count == 10 || (count %% 10 == 0 && soundtime10 > 5.84)){
+      beep("mario")
+      timing10 <<- proc.time()[3]
+    }
+  }
+})
 
 #' Pipe/warp an object downwards into a function call/expression/dungeon level.
 #'
@@ -46,8 +77,8 @@ warp <- function(x) {
 #' @export
 #' @examples
 #' 
-#' seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>%
-#' sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>% 
+#' seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% (l(x ~ Sys.sleep(1))) %W>%
+#' sin %T>% print %T>% plot(type = 'l') %T>% (l(x ~ Sys.sleep(1))) %W>% 
 #' sin %T>% print %T>% plot(type = 'l')
 #' 
 #' \dontrun{
@@ -55,8 +86,8 @@ warp <- function(x) {
 #' library(dplyr)
 #' library(Lahman)
 #' Batting %W>%
-#' group_by(playerID) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
-#' summarise(total = sum(G)) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+#' group_by(playerID) %T>% print %T>% (l(x ~ Sys.sleep(2))) %W>%
+#' summarise(total = sum(G)) %T>% print %T>% (l(x ~ Sys.sleep(2))) %W>%
 #' arrange(desc(total)) 
 #'
 #' }
