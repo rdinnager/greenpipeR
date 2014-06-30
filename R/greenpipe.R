@@ -32,6 +32,16 @@ warp <- function(x) {
   beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
 }
 
+warp2 <- local({
+  timing <- proc.time()
+  function(x) {
+    cl <- match.call()
+    counter <- gregexpr("%L>%", cl[[2]], fixed = TRUE)[[1]]
+    if (counter[1] == -1) count <- 1 else count <- length(counter) + 1
+    beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
+  }
+})
+
 #' Pipe/warp an object downwards into a function call/expression/dungeon level.
 #'
 #' Also known as the "warp" operator, \code{\%W>\%} does exactly the same thing as \code{\link{\%>\%}}:
@@ -60,4 +70,4 @@ warp <- function(x) {
 #' arrange(desc(total)) 
 #'
 #' }
-`%W>%` <- pipe_with(warp)
+`%W>%` <- pipe_with(warp2)
