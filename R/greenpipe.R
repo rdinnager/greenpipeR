@@ -28,11 +28,7 @@ pipe_with <- function(expr) function(lhs, rhs)
   eval(call("%>%", lhs, substitute(rhs)), parent, parent)
 }
 
-warp <- function(x) {
-  beep(system.file("sound", "smb_pipe.wav", package="greenpipeR"))
-}
-
-warp2 <- local({
+warp <- local({
   timing <- proc.time()[3]
   function(x) {
     cl <- match.call()
@@ -60,8 +56,8 @@ warp2 <- local({
 #' @export
 #' @examples
 #' 
-#' seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>%
-#' sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>% 
+#' seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% (l(x ~ Sys.sleep(1))) %W>%
+#' sin %T>% print %T>% plot(type = 'l') %T>% (l(x ~ Sys.sleep(1))) %W>% 
 #' sin %T>% print %T>% plot(type = 'l')
 #' 
 #' \dontrun{
@@ -69,9 +65,9 @@ warp2 <- local({
 #' library(dplyr)
 #' library(Lahman)
 #' Batting %W>%
-#' group_by(playerID) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
-#' summarise(total = sum(G)) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+#' group_by(playerID) %T>% print %T>% (l(x ~ Sys.sleep(2))) %W>%
+#' summarise(total = sum(G)) %T>% print %T>% (l(x ~ Sys.sleep(2))) %W>%
 #' arrange(desc(total)) 
 #'
 #' }
-`%W>%` <- pipe_with(warp2)
+`%W>%` <- pipe_with(warp)

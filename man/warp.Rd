@@ -17,8 +17,8 @@ a bonus: when you use \code{\%W>\%} you hear the sound that --- if you are anyth
 like me --- goes through your head every time you use a pipe, only for real!
 }
 \examples{
-seq(1,10,0.1) \%W>\% sin \%T>\% print \%T>\% plot(type = 'l') \%T>\% l(x -> Sys.sleep(1)) \%W>\%
-sin \%T>\% print \%T>\% plot(type = 'l') \%T>\% l(x -> Sys.sleep(1)) \%W>\%
+seq(1,10,0.1) \%W>\% sin \%T>\% print \%T>\% plot(type = 'l') \%T>\% (l(x ~ Sys.sleep(1))) \%W>\%
+sin \%T>\% print \%T>\% plot(type = 'l') \%T>\% (l(x ~ Sys.sleep(1))) \%W>\%
 sin \%T>\% print \%T>\% plot(type = 'l')
 
 \dontrun{
@@ -26,8 +26,8 @@ sin \%T>\% print \%T>\% plot(type = 'l')
 library(dplyr)
 library(Lahman)
 Batting \%W>\%
-group_by(playerID) \%T>\% print \%T>\% l(x -> Sys.sleep(2)) \%W>\%
-summarise(total = sum(G)) \%T>\% print \%T>\% l(x -> Sys.sleep(2)) \%W>\%
+group_by(playerID) \%T>\% print \%T>\% (l(x ~ Sys.sleep(2))) \%W>\%
+summarise(total = sum(G)) \%T>\% print \%T>\% (l(x ~ Sys.sleep(2))) \%W>\%
 arrange(desc(total))
 
 }
