@@ -30,8 +30,8 @@ Here's a few examples to get you started:
 ```
 library(greenpipeR)
 
-seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>%
-sin %T>% print %T>% plot(type = 'l') %T>% l(x -> Sys.sleep(1)) %W>% 
+seq(1,10,0.1) %W>% sin %T>% print %T>% plot(type = 'l') %T>% (l(x ~ Sys.sleep(1))) %W>%
+sin %T>% print %T>% plot(type = 'l') %T>% (l(x ~ Sys.sleep(1))) %W>% 
 sin %T>% print %T>% plot(type = 'l')
 ```
 
@@ -40,8 +40,8 @@ library(dplyr)
 library(Lahman)
 
 Batting %W>%
-group_by(playerID) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
-summarise(total = sum(G)) %T>% print %T>% l(x -> Sys.sleep(2)) %W>%
+group_by(playerID) %T>% print %T>% (l(x ~ Sys.sleep(2))) %W>%
+summarise(total = sum(G)) %T>% print %T>% (l(x ~ Sys.sleep(2))) %W>%
 arrange(desc(total)) 
 ```
 
